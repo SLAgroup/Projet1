@@ -11,6 +11,7 @@ REF_USER STATIC
 ASSOSSIATION*/
 import java.io.Serializable;
 
+@Entity
 public class Employe implements Serializable {
 	private Long IdEmploye ;
 	private String Nom ;
@@ -34,4 +35,10 @@ public class Employe implements Serializable {
 		Nom = nom;
 	}
 
+	@OnetoMany
+	private List<Operation> listOpEmploye;
+	
+	@ManytoMany(fetch = FetchType.LAZY)
+	private List<Groupe> lisGroup;
+	
 }

@@ -8,6 +8,8 @@ REF UML
 SPRINT
 REF_USER STATIC
 ASSOSSIATION*/
+
+@Entity
 public class Groupe {
     private Long IdGroupe ;
     private String NomGroupe ;
@@ -30,4 +32,7 @@ public class Groupe {
 	public void setNomGroupe(String nomGroupe) {
 		NomGroupe = nomGroupe;
 	}
+	
+@ManytoMany
+private List<Employe> lisEmpGroupe;
 }

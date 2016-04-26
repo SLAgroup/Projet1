@@ -1,7 +1,11 @@
 package com.gestiondecompte.gestiondecompte.entites;
 
 import java.util.Date;
+import java.util.List;
 
+@Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "typeOperation", discriminatorType = DiscriminatorType.STRING)
 public class Operation {
    private Long IdOperation ;
    private Date dateOperation;
@@ -32,4 +36,11 @@ public Operation(Date dateOperation, double montant) {
 public Operation() {
 	super();
 }
+
+@ManytoOne(fetch = FetchType.LAZY)
+private List<Compte> listCompteOperation;
+
+@ManytoOne(fetch = FetchType.LAZY)
+private Employe ep;
+
 }

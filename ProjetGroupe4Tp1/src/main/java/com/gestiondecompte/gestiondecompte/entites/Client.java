@@ -11,8 +11,9 @@ ASSOSSIATION*/
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
-
+@Entity
 public class Client implements Serializable{
     private Long IdClient ;
     private String NomClient ;
@@ -61,4 +62,7 @@ public class Client implements Serializable{
 		super();
 	}
 
-
+	@OnetoMany
+	private List<Compte> listCompteClient;
+	
+}

@@ -19,14 +19,20 @@ import java.util.List;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+@Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "typeCompte", discriminatorType = DiscriminatorType.STRING)
 public class Compte implements Serializable {
@@ -39,9 +45,6 @@ public class Compte implements Serializable {
 	@Temporal(TemporalType.DATE)
 	private Date dateDeCreationCompte;
 
-	// Associations
-	private Client client;
-	private List<Operation> listeOperation;
 
 	// Getters & Setters
 	public Long getIdCompte() {
@@ -94,6 +97,34 @@ public class Compte implements Serializable {
 		this.solde = solde;
 		this.dateDeCreationCompte = dateDeCreationCompte;
 	}
+
+	// Associations
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "idClient")
+	private Client client;
+	
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(name = "Assos_Compte_Operation", joinColumns = @JoinColumn(name = "idCompte"), inverseJoinColumns = @JoinColumn(name = "idOperation"))
+	private List<Operation> listeOperation;
+	
+	public Client getClient() {
+		return client;
+	}
+
+	public void setClient(Client client) {
+		this.client = client;
+	}
+
+	public List<Operation> getListeOperation() {
+		return listeOperation;
+	}
+
+	public void setListeOperation(List<Operation> listeOperation) {
+		this.listeOperation = listeOperation;
+	}
+
+	
+
 
 }
 

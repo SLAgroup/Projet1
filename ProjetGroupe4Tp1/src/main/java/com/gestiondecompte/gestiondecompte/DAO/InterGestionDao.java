@@ -1,23 +1,31 @@
 package com.gestiondecompte.gestiondecompte.DAO;
 
+import java.util.List;
+
+import com.gestiondecompte.gestiondecompte.entites.Client;
+import com.gestiondecompte.gestiondecompte.entites.Compte;
+import com.gestiondecompte.gestiondecompte.entites.Employe;
+import com.gestiondecompte.gestiondecompte.entites.Groupe;
+import com.gestiondecompte.gestiondecompte.entites.Operation;
+
 public interface InterGestionDao {
 
-	public Client ajouteClient (Client c);
-	public Employe ajouterEmploye (Employe e);
-	public Groupe ajouterGroupe (Groupe g);
-	public ajouterEmploye_Groupe 
-	public ajouterCompte
-	public ajouterOperation
-	public consulterCompte
-	public consulterComptes_Client
-	public consulterComptesCrees_Employe
-	public consulterTousEmployes
-	public consulterTousGroupes
-	public consulterEmployes_Groupe
-	public consulterClientsParMC
-	public effectuerVersement
-	public effectuerRetrait
-	public effectuerVirementCompte_Compte
+	public void ajouteClient (Client c);
+	public void ajouterEmploye (Employe e);
+	public void ajouterGroupe (Groupe g);
+	public void ajouterEmploye_Groupe (Long idGroup, Long idEmploye);
+	public void ajouterCompte(Compte c);
+	public void ajouterOperation(Operation o);
+	public List<Compte> consulterCompte(Long idCompte);
+	public List<Compte> consulterComptes_Client (Long idClient);
+	public List<Compte> consulterComptesCrees_Employe(Long idEmploye);
+	public List<Employe> consulterTousEmployes();
+	public List<Groupe> consulterTousGroupes();
+	public List<Employe> consulterEmployes_Groupe(Long idGroup);
+	public List<Client> consulterClientsParMC(String mc);
+	public void effectuerVersement(double mt, Long idCompte);
+	public void effectuerRetrait(double mt, Long idCompte);
+	public void effectuerVirementCompte_Compte(double mt, Long idCompte1,Long idCompte2);
 	
 	
 	

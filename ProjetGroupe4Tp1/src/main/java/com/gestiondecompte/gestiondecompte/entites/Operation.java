@@ -38,7 +38,7 @@ public Operation() {
 }
 
 @ManytoOne(fetch = FetchType.LAZY)
-private List<Compte> listCompteOperation;
+private Compte compte;
 
 @ManytoOne(fetch = FetchType.LAZY)
 private Employe ep;

@@ -103,7 +103,7 @@ public class Compte implements Serializable {
 	@JoinColumn(name = "idClient")
 	private Client client;
 	
-	@ManyToMany(fetch = FetchType.LAZY)
+	@OnetoMany(fetch = FetchType.LAZY)
 	@JoinTable(name = "Assos_Compte_Operation", joinColumns = @JoinColumn(name = "idCompte"), inverseJoinColumns = @JoinColumn(name = "idOperation"))
 	private List<Operation> listeOperation;
 	

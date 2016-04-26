@@ -1,3 +1,4 @@
+
 package com.gestiondecompte.gestiondecompte.entites;
 /*Rahli Aghiles
 ProjetGroupe4TP1
@@ -13,6 +14,13 @@ import java.io.Serializable;
 public class Employe implements Serializable {
 	private Long IdEmploye ;
 	private String Nom ;
+	public Employe() {
+		super();
+	}
+	public Employe(String nom) {
+		super();
+		Nom = nom;
+	}
 	public Long getIdEmploye() {
 		return IdEmploye;
 	}
@@ -25,13 +33,5 @@ public class Employe implements Serializable {
 	public void setNom(String nom) {
 		Nom = nom;
 	}
-	public Employe(String nom) {
-		super();
-		Nom = nom;
-	}
-	public Employe() {
-		super();
-	}
-	
 
 }

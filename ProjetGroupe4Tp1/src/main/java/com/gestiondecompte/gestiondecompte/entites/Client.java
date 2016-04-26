@@ -12,6 +12,7 @@ ASSOSSIATION*/
 import java.io.Serializable;
 import java.util.Date;
 
+
 public class Client implements Serializable{
     private Long IdClient ;
     private String NomClient ;

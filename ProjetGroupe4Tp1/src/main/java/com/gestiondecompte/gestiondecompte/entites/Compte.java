@@ -3,8 +3,8 @@ package com.gestiondecompte.gestiondecompte.entites;
 /*
  * Auteur : Sylvain VROLAND
  * Date : 26/04/2016
- * class : Client
- * package : com.Client.Client.entities
+ * class : Compte
+ * package : com.gestiondecompte.gestiondecompte.entities
  * Version : 01 ;
  * ref-uml : 1 ;
  * sprint : 1 ;
@@ -34,63 +34,54 @@ public class Compte implements Serializable {
 	// Attibuts
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idClient;
-	private String nomClient;
-	private String prenomClient;
+	private Long idCompte;
+	private double solde = 0;
 	@Temporal(TemporalType.DATE)
-	private Date dateDeNaissance;
-	private String adresseClient;
+	private Date dateDeCreationCompte;
 
 	// Associations
-	private List<Compte> listeCompte;
+	private Client client;
+	private List<Operation> listeOperation;
 
 	// Getters & Setters
-	public Long getIdClient() {
-		return idClient;
+	public Long getIdCompte() {
+		return idCompte;
 	}
 
-	public void setIdClient(Long idClient) {
-		this.idClient = idClient;
+	public void setIdCompte(Long idCompte) {
+		this.idCompte = idCompte;
 	}
 
-	public String getNomClient() {
-		return nomClient;
+	public double getSolde() {
+		return solde;
 	}
 
-	public void setNomClient(String nomClient) {
-		this.nomClient = nomClient;
+	public void setSolde(double solde) {
+		this.solde = solde;
 	}
 
-	public String getPrenomClient() {
-		return prenomClient;
+	public Date getDateDeCreationCompte() {
+		return dateDeCreationCompte;
 	}
 
-	public void setPrenomClient(String prenomClient) {
-		this.prenomClient = prenomClient;
+	public void setDateDeCreationCompte(Date dateDeCreationCompte) {
+		this.dateDeCreationCompte = dateDeCreationCompte;
 	}
 
-	public Date getDateDeNaissance() {
-		return dateDeNaissance;
+	public Client getClient() {
+		return client;
 	}
 
-	public void setDateDeNaissance(Date dateDeNaissance) {
-		this.dateDeNaissance = dateDeNaissance;
+	public void setClient(Client client) {
+		this.client = client;
 	}
 
-	public String getAdresseClient() {
-		return adresseClient;
+	public List<Operation> getListeOperation() {
+		return listeOperation;
 	}
 
-	public void setAdresseClient(String adresseClient) {
-		this.adresseClient = adresseClient;
-	}
-
-	public List<Compte> getListeCompte() {
-		return listeCompte;
-	}
-
-	public void setListeCompte(List<Compte> listeCompte) {
-		this.listeCompte = listeCompte;
+	public void setListeOperation(List<Operation> listeOperation) {
+		this.listeOperation = listeOperation;
 	}
 
 	// Constructeurs
@@ -98,13 +89,11 @@ public class Compte implements Serializable {
 
 	}
 
-	public Compte(String nomClient, String prenomClient, Date dateDeNaissance,
-			String adresseClient) {
+	public Compte(double solde, Date dateDeCreationCompte) {
 		super();
-		this.nomClient = nomClient;
-		this.prenomClient = prenomClient;
-		this.dateDeNaissance = dateDeNaissance;
-		this.adresseClient = adresseClient;
+		this.solde = solde;
+		this.dateDeCreationCompte = dateDeCreationCompte;
 	}
 
 }
+

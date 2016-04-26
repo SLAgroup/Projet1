@@ -2,10 +2,10 @@ package com.gestiondecompte.gestiondecompte.DAO;
 
 public interface InterGestionDao {
 
-	public ajouteClient (Client c);
-	public ajouterEmploye
-	public ajouterGroupe
-	public ajouterEmploye_Groupe
+	public Client ajouteClient (Client c);
+	public Employe ajouterEmploye (Employe e);
+	public Groupe ajouterGroupe (Groupe g);
+	public ajouterEmploye_Groupe 
 	public ajouterCompte
 	public ajouterOperation
 	public consulterCompte

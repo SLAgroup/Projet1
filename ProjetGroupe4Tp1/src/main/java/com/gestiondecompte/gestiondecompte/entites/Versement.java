@@ -1,22 +1,35 @@
 package com.gestiondecompte.gestiondecompte.entites;
 
+import java.util.Date;
+
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+
 /*
-AUTEUR: Rahli Aghiles
-NOM DU PROJET: ProjetGroupe4TP1
-DATE: 26/04/2016
-CLASSE: Versement
-VERSION: 1
-REF UML:2
-SPRINT:
-REF_USER STORIES:
-ASSOSSIATION: -
-*/
+ AUTEUR: Rahli Aghiles
+ NOM DU PROJET: ProjetGroupe4TP1
+ DATE: 26/04/2016
+ CLASSE: Versement
+ VERSION: 1
+ REF UML:2
+ SPRINT:
+ REF_USER STORIES:
+ ASSOSSIATION: -
+ */
 
 @Entity
 @DiscriminatorValue("Versement")
-public class Versement extends Operation{
+public class Versement extends Operation {
 
-	// ----------- CONSTRUCTEURS: ----------- 
-	//?
-	
+	public Versement() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Versement(Date dateOperation, double montant) {
+		super(dateOperation, montant);
+		// TODO Auto-generated constructor stub
+	}
+
+
 }

@@ -1,4 +1,13 @@
 package com.gestiondecompte.gestiondecompte.entites;
+
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+
 /*
 AUTEUR: Rahli Aghiles
 NOM DU PROJET: ProjetGroupe4TP1
@@ -22,7 +31,7 @@ public class Groupe {
 
 	// ----------- ASSOCIATION: ----------- 
     
-    @ManytoMany (mappedBy="listGroup")
+    @ManyToMany (mappedBy="listGroup")
     private List<Employe> lisEmpGroupe;
     
 	// ----------- GETTERS/SETTERS: -----------
@@ -40,10 +49,16 @@ public class Groupe {
 		NomGroupe = nomGroupe;
 	}
     
-	//getters setters listEmGroup?
+	public List<Employe> getLisEmpGroupe() {
+		return lisEmpGroupe;
+	}
+	public void setLisEmpGroupe(List<Employe> lisEmpGroupe) {
+		this.lisEmpGroupe = lisEmpGroupe;
+	}
 
 	// ----------- CONSTRUCTEURS: ----------- 
         
+
 	public Groupe() {
 		super();
 	}

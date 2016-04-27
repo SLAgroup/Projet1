@@ -29,6 +29,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -49,10 +50,13 @@ public class Compte implements Serializable {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "idClient")
 	private Client client;
-	
-	@OnetoMany(fetch = FetchType.LAZY)
+
+	@OneToMany(fetch = FetchType.LAZY)
 	@JoinTable(name = "Assos_Compte_Operation", joinColumns = @JoinColumn(name = "idCompte"), inverseJoinColumns = @JoinColumn(name = "idOperation"))
 	private List<Operation> listeOperation;
+	
+	@ManyToOne
+	private Employe employe;
 	
 	// Getters & Setters
 	public Long getIdCompte() {
@@ -94,21 +98,14 @@ public class Compte implements Serializable {
 	public void setListeOperation(List<Operation> listeOperation) {
 		this.listeOperation = listeOperation;
 	}
+
 	
-	public Client getClient() {
-		return client;
+	public Employe getEmploye() {
+		return employe;
 	}
 
-	public void setClient(Client client) {
-		this.client = client;
-	}
-
-	public List<Operation> getListeOperation() {
-		return listeOperation;
-	}
-
-	public void setListeOperation(List<Operation> listeOperation) {
-		this.listeOperation = listeOperation;
+	public void setEmploye(Employe employe) {
+		this.employe = employe;
 	}
 
 	// Constructeurs

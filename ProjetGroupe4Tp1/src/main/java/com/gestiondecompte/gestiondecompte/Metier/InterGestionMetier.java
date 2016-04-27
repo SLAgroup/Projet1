@@ -30,5 +30,7 @@ public interface InterGestionMetier {
 	public void effectuerVersement(double mt, Long idCompte,Long idEmploye);
 	public void effectuerRetrait(double mt, Long idCompte , Long idEmploye);
 	public void effectuerVirementCompte_Compte(double mt, Long idCompte1,Long idCompte2, Long idEmploye);
+	public Employe consulterEmploye(Long idEmploye);
+	public Groupe consulterGroupe(Long idGroupe);
 	
 }

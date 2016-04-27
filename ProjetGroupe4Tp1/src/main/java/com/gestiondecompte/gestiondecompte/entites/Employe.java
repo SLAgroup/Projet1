@@ -12,6 +12,7 @@ package com.gestiondecompte.gestiondecompte.entites;
  ASSOSSIATION: Operation(OnetoMany) / Groupe (ManytoMany)
  */
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -39,7 +40,7 @@ public class Employe implements Serializable {
 
 	@ManyToMany(fetch = FetchType.LAZY)
 	@javax.persistence.JoinTable(name = "Groupe_Employe")
-	private List<Groupe> listGroup;
+	private List<Groupe> listGroup = new ArrayList<Groupe>();
 	
 	@OneToMany(fetch = FetchType.LAZY)
 	private List<Compte> listCompte;

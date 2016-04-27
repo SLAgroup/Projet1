@@ -1,5 +1,6 @@
 package com.gestiondecompte.gestiondecompte.entites;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -32,7 +33,7 @@ public class Groupe {
 	// ----------- ASSOCIATION: ----------- 
     
     @ManyToMany (mappedBy="listGroup")
-    private List<Employe> lisEmpGroupe;
+    private List<Employe> lisEmpGroupe= new ArrayList<Employe>();
     
 	// ----------- GETTERS/SETTERS: -----------
     

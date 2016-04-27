@@ -148,8 +148,15 @@ private final Logger Log= Logger.getLogger("Debut du test ");
 
 		
 	}
-
-
+	
+	public Employe consulterEmploye(Long idEmploye){
+		return dao.consulterEmploye(idEmploye);
+	}
+	public Groupe consulterGroupe(Long idGroupe){
+		return dao.consulterGroupe(idGroupe);
+	}
+		
+	
 
 
 }

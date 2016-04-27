@@ -27,5 +27,8 @@ public interface InterGestionDao {
 	
 	public void ModifierCompte(Compte c);
 	
+	public Employe consulterEmploye(Long idEmploye);
+	public Groupe consulterGroupe(Long idGroupe);
+	
 	
 }

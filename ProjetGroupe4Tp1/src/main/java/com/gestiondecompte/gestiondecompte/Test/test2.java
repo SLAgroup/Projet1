@@ -3,6 +3,7 @@ package com.gestiondecompte.gestiondecompte.Test;
 import static org.junit.Assert.*;
 
 import java.util.Date;
+import java.util.List;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -11,8 +12,10 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.gestiondecompte.gestiondecompte.Metier.InterGestionMetier;
 import com.gestiondecompte.gestiondecompte.entites.Client;
+import com.gestiondecompte.gestiondecompte.entites.Compte;
 import com.gestiondecompte.gestiondecompte.entites.Employe;
 import com.gestiondecompte.gestiondecompte.entites.Groupe;
+import com.gestiondecompte.gestiondecompte.entites.Operation;
 
 public class test2 {
 
@@ -38,6 +41,7 @@ public class test2 {
 
 	}
 
+	
 	@Test
 	public void testAjouterEmploye() {
 		Employe e = new Employe("Aghiles");
@@ -45,8 +49,10 @@ public class test2 {
 		assertNotNull(e.getIdEmploye());
 	}
 
+	
 	@Test
 	public void testAjouterGroupe() {
+		
 		Groupe g = new Groupe("Groupe 4");
 		metier.ajouterGroupe(g);
 		assertNotNull(g.getIdGroupe());
@@ -54,72 +60,98 @@ public class test2 {
 
 	@Test
 	public void testAjouterEmploye_Groupe() {
-		fail("Not yet implemented");
+		
+		metier.ajouterEmploye_Groupe(1L, 1L);
+		Employe emp = metier.consulterEmploye(1L);
+		Groupe group = metier.consulterGroupe(1L);	
+		assertNotNull(emp.getListGroup());
+	
 	}
 
 	@Test
 	public void testAjouterCompte() {
-		fail("Not yet implemented");
+		Compte c = new Compte(100, new Date());
+		metier.ajouterCompte(c, 1L, 1L);
+		assertNotNull(c.getIdCompte());
 	}
 
 	@Test
 	public void testAjouterOperation() {
-		fail("Not yet implemented");
+		Operation o = new Operation(new Date(), 200);
+		metier.ajouterOperation(o, 1L, 1L);
+		assertNotNull(o.getIdOperation());
 	}
 
 	@Test
 	public void testConsulterCompte() {
-		fail("Not yet implemented");
+	
+	assertNotNull(metier.consulterCompte(1L));
 	}
 
 	@Test
 	public void testConsulterComptes_Client() {
-		fail("Not yet implemented");
+		
+		assertNotNull(metier.consulterComptes_Client(1L));
+	
 	}
 
 	@Test
 	public void testConsulterComptesCrees_Employe() {
-		fail("Not yet implemented");
+		assertNotNull(metier.consulterComptesCrees_Employe(1L));
 	}
 
 	@Test
 	public void testConsulterTousEmployes() {
-		fail("Not yet implemented");
+		assertNotNull(metier.consulterTousEmployes());
 	}
 
 	@Test
 	public void testConsulterTousGroupes() {
-		fail("Not yet implemented");
+		assertNotNull(metier.consulterTousGroupes());
 	}
 
 	@Test
 	public void testConsulterEmployes_Groupe() {
-		fail("Not yet implemented");
+		assertNotNull(metier.consulterEmployes_Groupe(1L));
 	}
 
 	@Test
 	public void testConsulterClientsParMC() {
-		fail("Not yet implemented");
+		assertNotNull(metier.consulterClientsParMC("y"));
 	}
 
 	@Test
 	public void testModifierCompte() {
-		fail("Not yet implemented");
+		Compte c2 = metier.consulterCompte(1L);
+		c2.setSolde(200);
+		metier.ModifierCompte(c2);
+		assertNotNull(c2.getSolde()==200);
 	}
 
 	@Test
 	public void testEffectuerVersement() {
-		fail("Not yet implemented");
+		Compte c2 = metier.consulterCompte(1L);
+		metier.effectuerVersement(300, 1L, 1L);
+		assertNotNull(c2.getSolde()==500);
 	}
 
 	@Test
 	public void testEffectuerRetrait() {
-		fail("Not yet implemented");
+		Compte c2 = metier.consulterCompte(1L);
+		metier.effectuerRetrait(400, 1L, 1L);
+		assertNotNull(c2.getSolde()==100);
 	}
 
 	@Test
 	public void testEffectuerVirementCompte_Compte() {
-		fail("Not yet implemented");
+		Compte c1 = new Compte(600, new Date());
+		Compte c2 = new Compte(200, new Date());
+		metier.ajouterCompte(c1, 1L, 1L);
+		metier.ajouterCompte(c2, 1L, 1L);
+		metier.effectuerVirementCompte_Compte(300, c1.getIdCompte(), c2.getIdCompte(), 1L);
+		assertNotNull(c1.getSolde()==300);
+		assertNotNull(c2.getSolde()==500);
+		
 	}
 
 }

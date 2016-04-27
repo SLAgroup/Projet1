@@ -1,25 +1,32 @@
 package com.gestiondecompte.gestiondecompte.entites;
-/*Rahli Aghiles
-ProjetGroupe4TP1
-26/04/2016
-CLASSE Groupe
-VERSION 1
-REF UML 
-SPRINT
-REF_USER STATIC
-ASSOSSIATION*/
+/*
+AUTEUR: Rahli Aghiles
+NOM DU PROJET: ProjetGroupe4TP1
+DATE: 26/04/2016
+CLASSE: Groupe
+VERSION: 1
+REF UML:2
+SPRINT:
+REF_USER STORIES:
+ASSOSSIATION: Employe(ManytoMany)
+*/
 
 @Entity
 public class Groupe {
+	
+	// ----------- ATTRIBUTS: -----------
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long IdGroupe ;
     private String NomGroupe ;
-	public Groupe() {
-		super();
-	}
-	public Groupe(String nomGroupe) {
-		super();
-		NomGroupe = nomGroupe;
-	}
+
+	// ----------- ASSOCIATION: ----------- 
+    
+    @ManytoMany (mappedBy="listGroup")
+    private List<Employe> lisEmpGroupe;
+    
+	// ----------- GETTERS/SETTERS: -----------
+    
 	public Long getIdGroupe() {
 		return IdGroupe;
 	}
@@ -32,7 +39,17 @@ public class Groupe {
 	public void setNomGroupe(String nomGroupe) {
 		NomGroupe = nomGroupe;
 	}
-	
-@ManytoMany
-private List<Employe> lisEmpGroupe;
+    
+	//getters setters listEmGroup?
+
+	// ----------- CONSTRUCTEURS: ----------- 
+        
+	public Groupe() {
+		super();
+	}
+	public Groupe(String nomGroupe) {
+		super();
+		NomGroupe = nomGroupe;
+	}
+
 }

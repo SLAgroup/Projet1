@@ -3,6 +3,10 @@ package com.gestiondecompte.gestiondecompte.DAO;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+
 import com.gestiondecompte.gestiondecompte.entites.Client;
 import com.gestiondecompte.gestiondecompte.entites.Compte;
 import com.gestiondecompte.gestiondecompte.entites.Employe;
@@ -10,24 +14,26 @@ import com.gestiondecompte.gestiondecompte.entites.Groupe;
 import com.gestiondecompte.gestiondecompte.entites.Operation;
 
 public class ImplDAO implements InterGestionDao{
-
+    @PersistenceContext
+	private EntityManager em;
+    
 	@Override
 	public void ajouteClient(Client c) {
 		// TODO Auto-generated method stub
 		
-		
+		em.persist(c);
 	}
 
 	@Override
 	public void ajouterEmploye(Employe e) {
 		// TODO Auto-generated method stub
-		
+		em.persist(e);
 	}
 
 	@Override
 	public void ajouterGroupe(Groupe g) {
 		// TODO Auto-generated method stub
-		
+		em.persist(g);
 	}
 
 	@Override
@@ -39,19 +45,20 @@ public class ImplDAO implements InterGestionDao{
 	@Override
 	public void ajouterCompte(Compte c) {
 		// TODO Auto-generated method stub
-		
+		em.persist(c);
 	}
 
 	@Override
 	public void ajouterOperation(Operation o) {
 		// TODO Auto-generated method stub
-		
+		em.persist(o);
 	}
 
 	@Override
 	public List<Compte> consulterCompte(Long idCompte) {
 		// TODO Auto-generated method stub
-		return null;
+		Query query=em.createQuery("from Compte c");
+		return query.getResultList();
 	}
 
 	@Override

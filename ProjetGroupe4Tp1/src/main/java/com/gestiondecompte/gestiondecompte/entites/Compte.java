@@ -45,7 +45,15 @@ public class Compte implements Serializable {
 	@Temporal(TemporalType.DATE)
 	private Date dateDeCreationCompte;
 
-
+	// Associations
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "idClient")
+	private Client client;
+	
+	@OnetoMany(fetch = FetchType.LAZY)
+	@JoinTable(name = "Assos_Compte_Operation", joinColumns = @JoinColumn(name = "idCompte"), inverseJoinColumns = @JoinColumn(name = "idOperation"))
+	private List<Operation> listeOperation;
+	
 	// Getters & Setters
 	public Long getIdCompte() {
 		return idCompte;
@@ -86,26 +94,6 @@ public class Compte implements Serializable {
 	public void setListeOperation(List<Operation> listeOperation) {
 		this.listeOperation = listeOperation;
 	}
-
-	// Constructeurs
-	public Compte() {
-
-	}
-
-	public Compte(double solde, Date dateDeCreationCompte) {
-		super();
-		this.solde = solde;
-		this.dateDeCreationCompte = dateDeCreationCompte;
-	}
-
-	// Associations
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "idClient")
-	private Client client;
-	
-	@OnetoMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "Assos_Compte_Operation", joinColumns = @JoinColumn(name = "idCompte"), inverseJoinColumns = @JoinColumn(name = "idOperation"))
-	private List<Operation> listeOperation;
 	
 	public Client getClient() {
 		return client;
@@ -123,8 +111,15 @@ public class Compte implements Serializable {
 		this.listeOperation = listeOperation;
 	}
 
-	
+	// Constructeurs
+	public Compte() {
 
+	}
+
+	public Compte(double solde, Date dateDeCreationCompte) {
+		super();
+		this.solde = solde;
+		this.dateDeCreationCompte = dateDeCreationCompte;
+	}
 
 }
-

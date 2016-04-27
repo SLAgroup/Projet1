@@ -1,25 +1,43 @@
 package com.gestiondecompte.gestiondecompte.entites;
-/*Rahli Aghiles
-ProjetGroupe4TP1
-26/04/2016
-CLASSE CLIENT
-VERSION 1
-REF UML
-SPRINT
-REF_USER STATIC
-ASSOSSIATION*/
+/*
+AUTEUR: Rahli Aghiles
+NOM DU PROJET: ProjetGroupe4TP1
+DATE: 26/04/2016
+CLASSE: Client
+VERSION: 1
+REF UML:1
+SPRINT:
+REF_USER STORIES:
+ASSOSSIATION: Compte (OnetoMany)
+*/
 
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import com.myapp.EXO1.JoinColumn;
+
 @Entity
 public class Client implements Serializable{
+	
+	// ----------- ATTRIBUTS: -----------
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long IdClient ;
     private String NomClient ;
     private String PrenomClient ;
+    @Temporal(TemporalType.DATE)
     private Date dateDeNaissance ;
     private String adresseClient ;
+    
+	// ----------- ASSOCIATION: -----------   
+    
+	@OnetoMany
+	@JoinColumn()
+	private List<Compte> listCompteClient; 
+        
+	// ----------- GETTERS/SETTERS: -----------  
+    
 	public Long getIdClient() {
 		return IdClient;
 	}
@@ -50,6 +68,11 @@ public class Client implements Serializable{
 	public void setAdresseClient(String adresseClient) {
 		this.adresseClient = adresseClient;
 	}
+	
+	//getter + setter de liste compte manquant
+	
+	// ----------- CONSTRUCTEURS: ----------- 
+	
 	public Client(String nomClient, String prenomClient, Date dateDeNaissance,
 			String adresseClient) {
 		super();
@@ -62,7 +85,6 @@ public class Client implements Serializable{
 		super();
 	}
 
-	@OnetoMany
-	private List<Compte> listCompteClient;
+
 	
 }

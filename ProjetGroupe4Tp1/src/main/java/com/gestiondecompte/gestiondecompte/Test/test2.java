@@ -11,6 +11,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.gestiondecompte.gestiondecompte.Metier.InterGestionMetier;
 import com.gestiondecompte.gestiondecompte.entites.Client;
+import com.gestiondecompte.gestiondecompte.entites.Employe;
+import com.gestiondecompte.gestiondecompte.entites.Groupe;
 
 public class test2 {
 
@@ -38,12 +40,16 @@ public class test2 {
 
 	@Test
 	public void testAjouterEmploye() {
-		fail("Not yet implemented");
+		Employe e = new Employe("Aghiles");
+		metier.ajouterEmploye(e);
+		assertNotNull(e.getIdEmploye());
 	}
 
 	@Test
 	public void testAjouterGroupe() {
-		fail("Not yet implemented");
+		Groupe g = new Groupe("Groupe 4");
+		metier.ajouterGroupe(g);
+		assertNotNull(g.getIdGroupe());
 	}
 
 	@Test

@@ -41,7 +41,7 @@ public class Client implements Serializable {
 
 	// ----------- ASSOCIATION: -----------
 
-	@OneToMany(mappedBy ="Client")
+	@OneToMany(mappedBy ="client")
 	private List<Compte> listCompteClient;
 
 	// ----------- GETTERS/SETTERS: -----------

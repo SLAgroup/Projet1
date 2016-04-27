@@ -115,7 +115,7 @@ public class ImplDAO implements InterGestionDao {
 	public List<Employe> consulterEmployes_Groupe(Long idGroup) {
 
 		Query query = (Query) em
-				.createQuery("Select eg from Groupe_Employe eg where eg.idGroup = :x");
+				.createQuery("Select g.lisEmpGroupe from Groupe g where g.IdGroupe = :x");
 		query.setParameter("x", idGroup);
 		return query.getResultList();
 

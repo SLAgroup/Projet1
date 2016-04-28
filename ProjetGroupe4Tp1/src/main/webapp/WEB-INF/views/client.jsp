@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -25,27 +24,28 @@
 <table class = tclient>
 
 		<tr>
-			<th> NomClient </th>
-			<th> PrenomClient</th>
+			<th> nomClient </th>
+			<th> prenomClient</th>
 			<th> dateDeNaissance </th>
 			<th> adresseClient </th>
 		</tr>
 		
 		<tr>
-			<td> <input type="text" name="NomClient"> </td>
-			<td> <input type="text" name="PrenomClient" ></td>
+			<td> <input type="text" name="nomClient"> </td>
+			<td> <input type="text" name="prenomClient" ></td>
 			<td> <input type="text" name="dateDeNaissance" ></td></code>
 			<td> <input type="text" name="adresseClient" ></td>
-			<td> <input type="submit" value="Ajouter nouveau client" ></td>			
+			<td> <input type="submit" value="ajouter nouveau client" ></td>			
 		</tr>		
 </table>
  
 <table class = tclient2>
 
-	<c:forEach items="${client}" var="cf">
+	
+	<c:forEach items="${Client}" var="cf">
 		<tr>
-			<td class = td2>${cf.NomClient}</td>
-			<td class = td3>${cf.PrenomClient}</td>
+			<td class = td2>${cf.nomClient}</td>
+			<td class = td3>${cf.prenomClient}</td>
 			<td class = td4>${cf.dateDeNaissance}</td>
 			<td class = td1>${cf.adresseClient}</td>
 		</tr>
@@ -61,30 +61,22 @@
 <table class = tMC>
 
 		<tr>
-			<th> NomClient </th>
-			<th> PrenomClient</th>
-			<th> dateDeNaissance </th>
-			<th> adresseClient </th>
-			<th> motCle</th>
-		</tr>
-		
-		<tr>
+			<td> <input type="text" name="motCle"> </td>
 			<td> <input type="submit" value="Rechercher client" ></td>
-			<td> <input type="text" name="motCle"> </td>			
+			
 		</tr>
-
 		
 </table>
 
 
 <table class = tMC2>
 
-	<c:forEach items="${Client2}" var="C">
+	<c:forEach items="${Client2}" var="cd">
 		<tr>
-			<td class = td2>${cf.NomClient}</td>
-			<td class = td3>${cf.PrenomClient}</td>
-			<td class = td4>${cf.dateDeNaissance}</td>
-			<td class = td1>${cf.adresseClient}</td>
+			<td class = td2>${cd.nomClient}</td>
+			<td class = td3>${cd.prenomClient}</td>
+			<td class = td4>${cd.dateDeNaissance}</td>
+			<td class = td1>${cd.adresseClient}</td>
 		</tr>
 	
 	</c:forEach>
@@ -92,44 +84,35 @@
 </table>
 
 </form> 
-<%--<!-- ***************Ajouter une Réparation Courante à un véhicule ****************** -->
 
-<form action="RepCoucou.do" method="post">
-<table class = tReparationCourante>
+ <!-- ***************Supprimer Client ****************** -->
+<form action="SuppClient.do" method="post">
 
+<table class = tMC>
 		<tr>
-			<th> dateReparation </th>
-			<th> idVehicule </th>
+			<td> <input type="text" name="Id"> </td>	
+			<td> <input type="submit" value="Supprimer client" ></td>
+					
 		</tr>
-		
-		<tr>
-			<td> <input type="text" name="dateReparation"> </td>
-			<td> <input type="text" name="idVehicule"> </td>
-			<td> <input type="submit" value="Ajouter nouvelle Reparation" ></td>
-		</tr>
-		
 </table>
 
-
-<table class = tReparationCourante2>
-
-	<c:forEach items="${reparationCourant}" var="rc">
+<table class = tMC2>
+	<c:forEach items="${Client3}" var="C3">
 		<tr>
-			<td class = td2>${rc.dateReparation}</td>
-			
-				<c:forEach items="${Vehicule}" var="v">	
-				<select name="Vehicule" id="">
-					<td><option value = ${v}> ${v} </option></td>
-				</select>
-				</c:forEach>
+			<td class = td2>${C3.nomClient}</td>
+			<td class = td3>${C3.prenomClient}</td>
+			<td class = td4>${C3.dateDeNaissance}</td>
+			<td class = td1>${C3.adresseClient}</td>
 		</tr>
 	
 	</c:forEach>
-	
 
 </table>
 
-</form>  --%>
+</form> 
+
+
+
 
 </body>
 </html>

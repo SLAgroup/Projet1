@@ -13,7 +13,6 @@ import com.gestiondecompte.gestiondecompte.Metier.InterGestionMetier;
 import com.gestiondecompte.gestiondecompte.entites.Client;
 import com.gestiondecompte.gestiondecompte.entites.Compte;
 
-
 @Controller
 public class Controleur {
 	@Autowired
@@ -37,14 +36,18 @@ public class Controleur {
 	//Actions Compte Sylvain
 	
 	@RequestMapping(value = "/vAjouterCompte")
-	public String vAjouterCompte(Model model, Double solde, Long idClient , Long idEmploye) {
-	
-		Compte cpt = new Compte(solde, new Date());
-		metier.ajouterCompte(cpt, idClient, idEmploye);		
+	public String vAjouterCompte(Model model, Compte cp, Long idClient , Long idEmploye) {
+
+		metier.AjouterCompte(cp, idClient, idEmploye);		
 //		model.addAttribute("cli", metier.ConsulterListeDeTousClients());
 		return "compte";
 	}
 	
+	@RequestMapping(value = "/vConsulterCompteParID")
+	public String vConsulterCompteParID(Model model, Long idCompte) {
+		model.addAttribute("modelCompte", metier.ConsulterCompte(idCompte));
+		return "compte";
+	}
 	//Actions Employé Aghiles
 	
 	
@@ -52,37 +55,45 @@ public class Controleur {
 		
 
 	@RequestMapping(value="/AjouterClient")
-	public String coucouli(Model model, String NomClient, String PrenomClient , String dateDeNaissance, String adresseClient) throws ParseException{
+	public String fonction1(Model model, String nomClient, String prenomClient , String dateDeNaissance, String adresseClient) throws ParseException{
 	
 		SimpleDateFormat sf = new SimpleDateFormat("dd/MM/YYYY");
 		Date d = sf.parse(dateDeNaissance);
-Client c = new Client(NomClient, PrenomClient, d, adresseClient);
-metier.ajouteClient(c);
-		model.addAttribute("client", c);
+		Client c = new Client(nomClient, prenomClient, d, adresseClient);
+		metier.AjouteClient(c);
+		model.addAttribute("Client", metier.ConsulterClients());
 		return "client";
 		
 	}
 	
 	
 	@RequestMapping(value="/ConsulterListeClientMC") 
-	public String Voivoi(Model model, Client c){
+	public String fonction2(Model model, String motCle){
 
 		
+		model.addAttribute("Client2", metier.ConsulterClientsParMC(motCle));
+	
 		return "client";
 		
 	}
 	
-	/*@RequestMapping(value="/RepCoucou") //url qui termine par index 
-	public String RepCou(Model model, ReparationCourant r,Long idVehicule){
-	
-		
-		
-		model.addAttribute("reparationCourant",metier.AjouterRepCourante_Vehicule(r, idVehicule));
-		model.addAttribute("v.idVoiture");
+	@RequestMapping(value="/SuppClient") 
+	public String fonction3(Model model, String idC){
 
+		Long idClie = Long.getLong(idC);
+		for (Client c: metier.ConsulterClients()){
+			if (c.getIdClient()== idClie){
+				metier.SupprimerClient(c);
+				}
+		}
+		
+		model.addAttribute("Client3",metier.ConsulterClients());
 		return "client";
 		
-	}*/
+	}
+	
+	
+
 	
 } 
  

@@ -51,7 +51,7 @@ public class Client implements Serializable {
 	}
 
 	public void setIdClient(Long idClient) {
-		idClient = idClient;
+		this.idClient = idClient;
 	}
 
 	public String getNomClient() {
@@ -59,7 +59,7 @@ public class Client implements Serializable {
 	}
 
 	public void setNomClient(String nomClient) {
-		nomClient = nomClient;
+		this.nomClient = nomClient;
 	}
 
 	public String getPrenomClient() {
@@ -67,7 +67,7 @@ public class Client implements Serializable {
 	}
 
 	public void setPrenomClient(String prenomClient) {
-		prenomClient = prenomClient;
+		this.prenomClient = prenomClient;
 	}
 
 	public Date getDateDeNaissance() {
@@ -99,8 +99,8 @@ public class Client implements Serializable {
 	public Client(String nomClient, String prenomClient, Date dateDeNaissance,
 			String adresseClient) {
 		super();
-		nomClient = nomClient;
-		prenomClient = prenomClient;
+		this.nomClient = nomClient;
+		this.prenomClient = prenomClient;
 		this.dateDeNaissance = dateDeNaissance;
 		this.adresseClient = adresseClient;
 	}

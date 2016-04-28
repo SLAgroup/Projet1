@@ -165,6 +165,22 @@ private final Logger Log= Logger.getLogger("Debut du test ");
 
 
 
+	@Override
+	public List<Client> ConsulterClients() {
+		// TODO Auto-generated method stub
+		return dao.ConsulterClients();
+	}
+
+
+
+	@Override
+	public void SupprimerClient(Client c) {
+		// TODO Auto-generated method stub
+		dao.SupprimerClient(c);;
+	}
+
+
+
 
 
 

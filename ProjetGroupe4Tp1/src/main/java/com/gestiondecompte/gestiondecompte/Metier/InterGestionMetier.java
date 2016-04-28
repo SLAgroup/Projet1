@@ -34,4 +34,7 @@ public interface InterGestionMetier {
 	public Employe ConsulterEmploye(Long idEmploye);
 	public Groupe ConsulterGroupe(Long idGroupe);
 	
+	public List<Client> ConsulterClients();
+	public void SupprimerClient(Client c);
+	
 }

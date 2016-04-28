@@ -35,7 +35,7 @@ public class Operation {
 	// ----------- ATTRIBUTS: -----------
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long IdOperation;
+	private Long idOperation;
 	private Date dateOperation;
 	private double montant;
 
@@ -50,11 +50,11 @@ public class Operation {
 	// ----------- GETTERS/SETTERS: -----------
 
 	public Long getIdOperation() {
-		return IdOperation;
+		return idOperation;
 	}
 
 	public void setIdOperation(Long idOperation) {
-		IdOperation = idOperation;
+		idOperation = idOperation;
 	}
 
 	public Date getDateOperation() {

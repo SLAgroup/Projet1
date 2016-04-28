@@ -30,8 +30,8 @@ public class Employe implements Serializable {
 	// ----------- ATTRIBUTS: -----------
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long IdEmploye;
-	private String Nom;
+	private Long idEmploye;
+	private String nom;
 
 	// ----------- ASSOCIATION: -----------
 
@@ -47,19 +47,19 @@ public class Employe implements Serializable {
 	// ----------- GETTERS/SETTERS: -----------
 
 	public Long getIdEmploye() {
-		return IdEmploye;
+		return idEmploye;
 	}
 
 	public void setIdEmploye(Long idEmploye) {
-		IdEmploye = idEmploye;
+		idEmploye = idEmploye;
 	}
 
 	public String getNom() {
-		return Nom;
+		return nom;
 	}
 
 	public void setNom(String nom) {
-		Nom = nom;
+		nom = nom;
 	}
 
 	public List<Operation> getListOpEmploye() {
@@ -96,6 +96,6 @@ public class Employe implements Serializable {
 
 	public Employe(String nom) {
 		super();
-		Nom = nom;
+		nom = nom;
 	}
 }

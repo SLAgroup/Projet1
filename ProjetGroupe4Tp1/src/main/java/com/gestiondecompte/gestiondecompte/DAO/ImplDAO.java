@@ -22,26 +22,26 @@ public class ImplDAO implements InterGestionDao {
 	private EntityManager em;
 
 	@Override
-	public void ajouteClient(Client c) {
+	public void AjouteClient(Client c) {
 		// TODO Auto-generated method stub
 
 		em.persist(c);
 	}
 
 	@Override
-	public void ajouterEmploye(Employe e) {
+	public void AjouterEmploye(Employe e) {
 		// TODO Auto-generated method stub
 		em.persist(e);
 	}
 
 	@Override
-	public void ajouterGroupe(Groupe g) {
+	public void AjouterGroupe(Groupe g) {
 		// TODO Auto-generated method stub
 		em.persist(g);
 	}
 
 	@Override
-	public void ajouterEmploye_Groupe(Long idGroup, Long idEmploye) {
+	public void AjouterEmploye_Groupe(Long idGroup, Long idEmploye) {
 		// TODO Auto-generated method stub
 		Groupe g = em.find(Groupe.class, idGroup);
 		Employe e = em.find(Employe.class, idEmploye);
@@ -50,7 +50,7 @@ public class ImplDAO implements InterGestionDao {
 	}
 
 	@Override
-	public void ajouterCompte(Compte c, Long idClient, Long idEmploye) {
+	public void AjouterCompte(Compte c, Long idClient, Long idEmploye) {
 		// TODO Auto-generated method stub
 		Client cli = em.find(Client.class, idClient);
 		Employe e = em.find(Employe.class, idEmploye);
@@ -61,7 +61,7 @@ public class ImplDAO implements InterGestionDao {
 	}
 
 	@Override
-	public void ajouterOperation(Operation o, Long idEmploye, Long idCompte) {
+	public void AjouterOperation(Operation o, Long idEmploye, Long idCompte) {
 		// TODO Auto-generated method stub
 
 		Compte c = em.find(Compte.class, idCompte);
@@ -72,21 +72,21 @@ public class ImplDAO implements InterGestionDao {
 	}
 
 	@Override
-	public Compte consulterCompte(Long idCompte) {
+	public Compte ConsulterCompte(Long idCompte) {
 		// TODO Auto-generated method stub
 		Compte c = em.find(Compte.class, idCompte);
 		return c;
 	}
 
 	@Override
-	public List<Compte> consulterComptes_Client(Long idClient) {
+	public List<Compte> ConsulterComptes_Client(Long idClient) {
 		// TODO Auto-generated method stub
 		Query query = em.createQuery("from Client");
 		return query.getResultList();
 	}
 
 	@Override
-	public List<Compte> consulterComptesCrees_Employe(Long idEmploye) {
+	public List<Compte> ConsulterComptesCrees_Employe(Long idEmploye) {
 		// TODO Auto-generated method stub
 
 		Query query = (Query) em.createQuery("Select c.idCompte from Compte c where c.employe = :x");
@@ -96,34 +96,34 @@ public class ImplDAO implements InterGestionDao {
 	}
 
 	@Override
-	public List<Employe> consulterTousEmployes() {
+	public List<Employe> ConsulterTousEmployes() {
 		// TODO Auto-generated method stub
 		Query query = em.createQuery("from Employe");
 		return query.getResultList();
 	}
 
 	@Override
-	public List<Groupe> consulterTousGroupes() {
+	public List<Groupe> ConsulterTousGroupes() {
 		// TODO Auto-generated method stub
 		Query query = (Query) em.createQuery("from Groupe");
 		return query.getResultList();
 	}
 
 	@Override
-	public List<Employe> consulterEmployes_Groupe(Long idGroup) {
+	public List<Employe> ConsulterEmployes_Groupe(Long idGroup) {
 
 		Query query = (Query) em
-				.createQuery("Select g.lisEmpGroupe from Groupe g where g.IdGroupe = :x");
+				.createQuery("Select g.lisEmpGroupe from Groupe g where g.idGroupe = :x");
 		query.setParameter("x", idGroup);
 		return query.getResultList();
 
 	}
 
 	@Override
-	public List<Client> consulterClientsParMC(String mc) {
+	public List<Client> ConsulterClientsParMC(String mc) {
 		// TODO Auto-generated method stub
 		Query query = (Query) em
-				.createQuery("Select c from Client c where c.NomClient = :x");
+				.createQuery("Select c from Client c where c.nomClient = :x");
 		query.setParameter("x", "%" + mc + "%");
 		return query.getResultList();
 	}
@@ -135,23 +135,36 @@ public class ImplDAO implements InterGestionDao {
 	}
 
 	@Override
-	public Employe consulterEmploye(Long idEmploye) {
+	public Employe ConsulterEmploye(Long idEmploye) {
 		// TODO Auto-generated method stub
 		Employe e = em.find(Employe.class, idEmploye);
 		return e;
 	}
 
 	@Override
-	public Groupe consulterGroupe(Long idGroupe) {
+	public Groupe ConsulterGroupe(Long idGroupe) {
 		// TODO Auto-generated method stub
 		Groupe g = em.find(Groupe.class, idGroupe);
 		return g;
 	}
 
 	@Override
-	public void supprimerCompte(Compte c) {
+	public void SupprimerCompte(Compte c) {
 		// TODO Auto-generated method stub
 		em.remove(c);
 		
+	}
+
+	@Override
+	public List<Client> ConsulterClients() {
+		// TODO Auto-generated method stub
+		Query query = (Query) em.createQuery("from Client");
+		return query.getResultList();
+	}
+
+	@Override
+	public void SupprimerClient(Client c) {
+		// TODO Auto-generated method stub
+		em.remove(c);
 	}
 }

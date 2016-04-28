@@ -11,27 +11,27 @@ import com.gestiondecompte.gestiondecompte.entites.Versement;
 
 public interface InterGestionMetier {
 	
-	public void ajouteClient (Client c);
-	public void ajouterEmploye (Employe e);
-	public void ajouterGroupe (Groupe g);
-	public void ajouterEmploye_Groupe (Long idGroup, Long idEmploye);
-	public void ajouterCompte(Compte c,Long idClient,Long idEmploye);
-	public void ajouterOperation(Operation o,Long idEmploye,Long idCompte);
-	public Compte consulterCompte(Long idCompte);
-	public List<Compte> consulterComptes_Client (Long idClient);
-	public List<Compte> consulterComptesCrees_Employe(Long idEmploye);
-	public List<Employe> consulterTousEmployes();
-	public List<Groupe> consulterTousGroupes();
-	public List<Employe> consulterEmployes_Groupe(Long idGroup);
-	public List<Client> consulterClientsParMC(String mc);
+	public void AjouteClient (Client c);
+	public void AjouterEmploye (Employe e);
+	public void AjouterGroupe (Groupe g);
+	public void AjouterEmploye_Groupe (Long idGroup, Long idEmploye);
+	public void AjouterCompte(Compte c,Long idClient,Long idEmploye);
+	public void AjouterOperation(Operation o,Long idEmploye,Long idCompte);
+	public Compte ConsulterCompte(Long idCompte);
+	public List<Compte> ConsulterComptes_Client (Long idClient);
+	public List<Compte> ConsulterComptesCrees_Employe(Long idEmploye);
+	public List<Employe> ConsulterTousEmployes();
+	public List<Groupe> ConsulterTousGroupes();
+	public List<Employe> ConsulterEmployes_Groupe(Long idGroup);
+	public List<Client> ConsulterClientsParMC(String mc);
 	
 	public void ModifierCompte(Compte c);
-	public void supprimerCompte(Compte c);
+	public void SupprimerCompte(Compte c);
 	
-	public void effectuerVersement(double mt, Long idCompte,Long idEmploye);
-	public void effectuerRetrait(double mt, Long idCompte , Long idEmploye);
-	public void effectuerVirementCompte_Compte(double mt, Long idCompte1,Long idCompte2, Long idEmploye);
-	public Employe consulterEmploye(Long idEmploye);
-	public Groupe consulterGroupe(Long idGroupe);
+	public void EffectuerVersement(double mt, Long idCompte,Long idEmploye);
+	public void EffectuerRetrait(double mt, Long idCompte , Long idEmploye);
+	public void EffectuerVirementCompte_Compte(double mt, Long idCompte1,Long idCompte2, Long idEmploye);
+	public Employe ConsulterEmploye(Long idEmploye);
+	public Groupe ConsulterGroupe(Long idGroupe);
 	
 }

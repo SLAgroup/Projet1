@@ -32,9 +32,9 @@ public class Client implements Serializable {
 	// ----------- ATTRIBUTS: -----------
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long IdClient;
-	private String NomClient;
-	private String PrenomClient;
+	private Long idClient;
+	private String nomClient;
+	private String prenomClient;
 	@Temporal(TemporalType.DATE)
 	private Date dateDeNaissance;
 	private String adresseClient;
@@ -47,27 +47,27 @@ public class Client implements Serializable {
 	// ----------- GETTERS/SETTERS: -----------
 
 	public Long getIdClient() {
-		return IdClient;
+		return idClient;
 	}
 
 	public void setIdClient(Long idClient) {
-		IdClient = idClient;
+		idClient = idClient;
 	}
 
 	public String getNomClient() {
-		return NomClient;
+		return nomClient;
 	}
 
 	public void setNomClient(String nomClient) {
-		NomClient = nomClient;
+		nomClient = nomClient;
 	}
 
 	public String getPrenomClient() {
-		return PrenomClient;
+		return prenomClient;
 	}
 
 	public void setPrenomClient(String prenomClient) {
-		PrenomClient = prenomClient;
+		prenomClient = prenomClient;
 	}
 
 	public Date getDateDeNaissance() {
@@ -99,8 +99,8 @@ public class Client implements Serializable {
 	public Client(String nomClient, String prenomClient, Date dateDeNaissance,
 			String adresseClient) {
 		super();
-		NomClient = nomClient;
-		PrenomClient = prenomClient;
+		nomClient = nomClient;
+		prenomClient = prenomClient;
 		this.dateDeNaissance = dateDeNaissance;
 		this.adresseClient = adresseClient;
 	}

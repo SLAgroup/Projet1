@@ -27,8 +27,8 @@ public class Groupe {
 	// ----------- ATTRIBUTS: -----------
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long IdGroupe ;
-    private String NomGroupe ;
+    private Long idGroupe ;
+    private String nomGroupe ;
 
 	// ----------- ASSOCIATION: ----------- 
     
@@ -38,16 +38,16 @@ public class Groupe {
 	// ----------- GETTERS/SETTERS: -----------
     
 	public Long getIdGroupe() {
-		return IdGroupe;
+		return idGroupe;
 	}
 	public void setIdGroupe(Long idGroupe) {
-		IdGroupe = idGroupe;
+		idGroupe = idGroupe;
 	}
 	public String getNomGroupe() {
-		return NomGroupe;
+		return nomGroupe;
 	}
 	public void setNomGroupe(String nomGroupe) {
-		NomGroupe = nomGroupe;
+		nomGroupe = nomGroupe;
 	}
     
 	public List<Employe> getLisEmpGroupe() {
@@ -65,7 +65,7 @@ public class Groupe {
 	}
 	public Groupe(String nomGroupe) {
 		super();
-		NomGroupe = nomGroupe;
+		nomGroupe = nomGroupe;
 	}
 
 }

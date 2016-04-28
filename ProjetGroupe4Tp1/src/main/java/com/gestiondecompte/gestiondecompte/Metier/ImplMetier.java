@@ -28,83 +28,83 @@ private final Logger Log= Logger.getLogger("Debut du test ");
 
 
 	@Override
-	public void ajouteClient(Client c) {
+	public void AjouteClient(Client c) {
 		// TODO Auto-generated method stub
 		
-		dao.ajouteClient(c);
+		dao.AjouteClient(c);
 	}
 
 	@Override
-	public void ajouterEmploye(Employe e) {
+	public void AjouterEmploye(Employe e) {
 		// TODO Auto-generated method stub
-		dao.ajouterEmploye(e);
+		dao.AjouterEmploye(e);
 	}
 
 	@Override
-	public void ajouterGroupe(Groupe g) {
+	public void AjouterGroupe(Groupe g) {
 		// TODO Auto-generated method stub
-		dao.ajouterGroupe(g);
+		dao.AjouterGroupe(g);
 	}
 
 	@Override
-	public void ajouterEmploye_Groupe(Long idGroup, Long idEmploye) {
+	public void AjouterEmploye_Groupe(Long idGroup, Long idEmploye) {
 		// TODO Auto-generated method stub
-		dao.ajouterEmploye_Groupe(idGroup, idEmploye);
+		dao.AjouterEmploye_Groupe(idGroup, idEmploye);
 	}
 
 	@Override
-	public void ajouterCompte(Compte c, Long idClient, Long idEmploye) {
+	public void AjouterCompte(Compte c, Long idClient, Long idEmploye) {
 		// TODO Auto-generated method stub
-		dao.ajouterCompte(c, idClient, idEmploye);
+		dao.AjouterCompte(c, idClient, idEmploye);
 	}
 
 	@Override
-	public void ajouterOperation(Operation o, Long idEmploye, Long idCompte) {
+	public void AjouterOperation(Operation o, Long idEmploye, Long idCompte) {
 		// TODO Auto-generated method stub
-		dao.ajouterOperation(o, idEmploye, idCompte);
+		dao.AjouterOperation(o, idEmploye, idCompte);
 	}
 
 	@Override
-	public Compte consulterCompte(Long idCompte) {
+	public Compte ConsulterCompte(Long idCompte) {
 		// TODO Auto-generated method stub
-		return dao.consulterCompte(idCompte);
+		return dao.ConsulterCompte(idCompte);
 		
 	}
 
 	@Override
-	public List<Compte> consulterComptes_Client(Long idClient) {
+	public List<Compte> ConsulterComptes_Client(Long idClient) {
 		// TODO Auto-generated method stub
-		return dao.consulterComptes_Client(idClient);
+		return dao.ConsulterComptes_Client(idClient);
 	}
 
 	@Override
-	public List<Compte> consulterComptesCrees_Employe(Long idEmploye) {
+	public List<Compte> ConsulterComptesCrees_Employe(Long idEmploye) {
 		// TODO Auto-generated method stub
-		return dao.consulterComptesCrees_Employe(idEmploye);
+		return dao.ConsulterComptesCrees_Employe(idEmploye);
 	}
 
 	@Override
-	public List<Employe> consulterTousEmployes() {
+	public List<Employe> ConsulterTousEmployes() {
 		// TODO Auto-generated method stub
-		return dao.consulterTousEmployes();
+		return dao.ConsulterTousEmployes();
 	}
 
 	@Override
-	public List<Groupe> consulterTousGroupes() {
+	public List<Groupe> ConsulterTousGroupes() {
 		// TODO Auto-generated method stub
-		return dao.consulterTousGroupes();
+		return dao.ConsulterTousGroupes();
 	}
 
 	@Override
-	public List<Employe> consulterEmployes_Groupe(Long idGroup) {
+	public List<Employe> ConsulterEmployes_Groupe(Long idGroup) {
 		// TODO Auto-generated method stub
-		return dao.consulterEmployes_Groupe(idGroup);
+		return dao.ConsulterEmployes_Groupe(idGroup);
 	}
 
 	@Override
-	public List<Client> consulterClientsParMC(String mc) {
+	public List<Client> ConsulterClientsParMC(String mc) {
 		// TODO Auto-generated method stub
-		return dao.consulterClientsParMC(mc);
+		return dao.ConsulterClientsParMC(mc);
 	}
 
 	@Override
@@ -114,54 +114,58 @@ private final Logger Log= Logger.getLogger("Debut du test ");
 	}
 	
 	@Override
-	public void effectuerVersement(double mt, Long idCompte, Long idEmploye) {
+	public void EffectuerVersement(double mt, Long idCompte, Long idEmploye) {
 		// TODO Auto-generated method stub
 		
 		Operation v = new Versement();
 		v.setMontant(mt);
-		Compte c =dao.consulterCompte(idCompte);
+		Compte c =dao.ConsulterCompte(idCompte);
 		c.setSolde(c.getSolde()+mt);
 		dao.ModifierCompte(c);
-		dao.ajouterOperation(v, idEmploye, idCompte);
+		dao.AjouterOperation(v, idEmploye, idCompte);
 		
 	}
 
 	@Override
-	public void effectuerRetrait(double mt, Long idCompte, Long idEmploye) {
+	public void EffectuerRetrait(double mt, Long idCompte, Long idEmploye) {
 		// TODO Auto-generated method stub
 		
 		Operation r = new Retrait();
 		r.setMontant(mt);
-		Compte c =dao.consulterCompte(idCompte);
+		Compte c =dao.ConsulterCompte(idCompte);
 		c.setSolde(c.getSolde()-mt);
 		dao.ModifierCompte(c);
-		dao.ajouterOperation(r, idEmploye, idCompte);
+		dao.AjouterOperation(r, idEmploye, idCompte);
 	}
 
 	@Override
-	public void effectuerVirementCompte_Compte(double mt, Long idCompte1,
+	public void EffectuerVirementCompte_Compte(double mt, Long idCompte1,
 			Long idCompte2, Long idEmploye) {
 		// TODO Auto-generated method stub
 	
-		effectuerRetrait(mt, idCompte1, idEmploye);
-		effectuerVersement(mt, idCompte2, idEmploye);
+		EffectuerRetrait(mt, idCompte1, idEmploye);
+		EffectuerVersement(mt, idCompte2, idEmploye);
 
 		
 	}
 	
-	public Employe consulterEmploye(Long idEmploye){
-		return dao.consulterEmploye(idEmploye);
+	public Employe ConsulterEmploye(Long idEmploye){
+		return dao.ConsulterEmploye(idEmploye);
 	}
-	public Groupe consulterGroupe(Long idGroupe){
-		return dao.consulterGroupe(idGroupe);
+	public Groupe ConsulterGroupe(Long idGroupe){
+		return dao.ConsulterGroupe(idGroupe);
 	}
 		
 	@Override
-	public void supprimerCompte(Compte c) {
+	public void SupprimerCompte(Compte c) {
 		// TODO Auto-generated method stub
-		dao.supprimerCompte(c);
+		dao.SupprimerCompte(c);
 		
 	}
+
+
+
+
 
 
 }

@@ -26,6 +26,7 @@ public interface InterGestionDao {
 	public List<Client> consulterClientsParMC(String mc);
 	
 	public void ModifierCompte(Compte c);
+	public void supprimerCompte(Compte c);
 	
 	public Employe consulterEmploye(Long idEmploye);
 	public Groupe consulterGroupe(Long idGroupe);

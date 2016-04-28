@@ -1,6 +1,5 @@
 package com.gestiondecompte.gestiondecompte.DAO;
 
-import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -16,7 +15,6 @@ import com.gestiondecompte.gestiondecompte.entites.Compte;
 import com.gestiondecompte.gestiondecompte.entites.Employe;
 import com.gestiondecompte.gestiondecompte.entites.Groupe;
 import com.gestiondecompte.gestiondecompte.entites.Operation;
-import com.gestiondecompte.gestiondecompte.entites.Versement;
 
 public class ImplDAO implements InterGestionDao {
 
@@ -150,4 +148,10 @@ public class ImplDAO implements InterGestionDao {
 		return g;
 	}
 
+	@Override
+	public void supprimerCompte(Compte c) {
+		// TODO Auto-generated method stub
+		em.remove(c);
+		
+	}
 }

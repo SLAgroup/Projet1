@@ -156,7 +156,12 @@ private final Logger Log= Logger.getLogger("Debut du test ");
 		return dao.consulterGroupe(idGroupe);
 	}
 		
-	
+	@Override
+	public void supprimerCompte(Compte c) {
+		// TODO Auto-generated method stub
+		dao.supprimerCompte(c);
+		
+	}
 
 
 }

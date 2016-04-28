@@ -26,6 +26,7 @@ public interface InterGestionMetier {
 	public List<Client> consulterClientsParMC(String mc);
 	
 	public void ModifierCompte(Compte c);
+	public void supprimerCompte(Compte c);
 	
 	public void effectuerVersement(double mt, Long idCompte,Long idEmploye);
 	public void effectuerRetrait(double mt, Long idCompte , Long idEmploye);

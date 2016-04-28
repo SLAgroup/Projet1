@@ -151,5 +151,8 @@ public class test2 {
 		assertNotNull(c2.getSolde()==500);
 		
 	}
+	
+	
+	
 
 }

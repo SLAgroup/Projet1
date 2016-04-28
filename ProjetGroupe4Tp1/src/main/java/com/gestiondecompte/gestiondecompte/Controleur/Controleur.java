@@ -18,6 +18,10 @@ public class Controleur {
 	@Autowired
 	private InterGestionMetier metier;
 
+	@RequestMapping(value = "/")
+	public String compt() {
+		return "compte";
+	}
 	@RequestMapping(value = "/compte")
 	public String compte() {
 		return "compte";

@@ -21,15 +21,25 @@
 
 <!-- ***************Ajouter un client****************** -->
 <form action="AjouterClient.do" method="post">
-<table class = tclient>
 
+
+<table class="table table-striped">
+			
+			<div class="panel panel-primary"> 
+			<tr>
+				<span class="badge"> Ajouter un client </span>
+			</tr><br />
 		<tr>
+
+			
+			
 			<th> nomClient </th>
-			<th> prenomClient</th>
+			 <th> prenomClient</th>
 			<th> dateDeNaissance </th>
-			<th> adresseClient </th>
+			<th> adresseClient </th></div>
+	
 		</tr>
-		
+
 		<tr>
 			<td> <input type="text" name="nomClient"> </td>
 			<td> <input type="text" name="prenomClient" ></td>
@@ -39,7 +49,7 @@
 		</tr>		
 </table>
  
-<table class = tclient2>
+<table class="table table-striped">
 
 	
 	<c:forEach items="${Client}" var="cf">
@@ -55,10 +65,22 @@
 </table>
 </form>
 
+<!-- 	<div class="panel panel-danger"></div>
+	<div class="panel panel-info"></div>
+	<div class="panel panel-success"></div>
+	<div class="panel panel-warning">	</div>	 -->
+	
  <!-- ***************Consulter Liste Client par mot clé ****************** -->
+ 
 
 <form action="ConsulterListeClientMC.do" method="post">
-<table class = tMC>
+<table class="table table-striped">
+
+			<tr>
+				<span class="badge"> Consulter Liste Client par mot clé: </span>
+			</tr>
+
+			<br />
 
 		<tr>
 			<td> <input type="text" name="motCle"> </td>
@@ -69,9 +91,12 @@
 </table>
 
 
-<table class = tMC2>
+<table class="table table-striped">
 
 	<c:forEach items="${Client2}" var="cd">
+	
+
+
 		<tr>
 			<td class = td2>${cd.nomClient}</td>
 			<td class = td3>${cd.prenomClient}</td>
@@ -88,7 +113,13 @@
  <!-- ***************Supprimer Client ****************** -->
 <form action="SuppClient.do" method="post">
 
-<table class = tMC>
+<table class="table table-striped">
+		
+			<tr>
+				<span class="badge"> Supprimer Client </span>
+			</tr>
+
+			<br />
 		<tr>
 			<td> <input type="text" name="Id"> </td>	
 			<td> <input type="submit" value="Supprimer client" ></td>
@@ -96,7 +127,7 @@
 		</tr>
 </table>
 
-<table class = tMC2>
+<table class="table table-striped">
 	<c:forEach items="${Client3}" var="C3">
 		<tr>
 			<td class = td2>${C3.nomClient}</td>

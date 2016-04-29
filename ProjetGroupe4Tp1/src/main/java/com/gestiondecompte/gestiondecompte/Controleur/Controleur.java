@@ -71,16 +71,20 @@ public class Controleur {
 	// Actions Employé Aghiles
 
 	@RequestMapping(value = "/ajouterEmploye")
-	public String AjouterEmploye(Model model, Employe e) {
+	public String AjouterEmploye(Model model, String nom) {
+		Employe e = new Employe(nom);
 		metier.AjouterEmploye(e);
-		model.addAttribute("Employe", metier.ConsulterEmploye(e.getIdEmploye()));
+		model.addAttribute("employes", metier.ConsulterEmploye(e.getIdEmploye()));
 		return "employe";
 	}
 
 	@RequestMapping(value = "/ajouterGoupe")
-	public String AjouterEmploye(Model model, Groupe g) {
+	public String AjouterGroupe(Model model, String nomgroupe) {
+		
+		Groupe g = new Groupe(nomgroupe);
 		metier.AjouterGroupe(g);
-		model.addAttribute("Groupe", metier.ConsulterEmploye(g.getIdGroupe()));
+		
+		model.addAttribute("grouper", metier.ConsulterGroupe(g.getIdGroupe()));
 		return "employe";
 	}
 
@@ -100,7 +104,7 @@ public class Controleur {
 
 	@RequestMapping(value = "/tousEmployes")
 	public String tousEmployes(Model model) {
-
+	
 		model.addAttribute("tousEmp", metier.ConsulterTousEmployes());
 
 		return "employe";
@@ -110,6 +114,7 @@ public class Controleur {
 	@RequestMapping(value = "/tousGroupes")
 	public String tousGroupes(Model model) {
 
+		
 		model.addAttribute("tousGps", metier.ConsulterTousGroupes());
 
 		return "employe";
@@ -152,8 +157,16 @@ public class Controleur {
 
 	}
 
+	@RequestMapping(value = "/ConsultertousClient")
+	public String fonction2(Model model) {
+
+		model.addAttribute("Client2", metier.ConsulterClients());
+
+		return "client";
+
+	}
 	@RequestMapping(value = "/ConsulterListeClientMC")
-	public String fonction2(Model model, String motCle) {
+	public String fonction3(Model model, String motCle) {
 
 		model.addAttribute("Client2", metier.ConsulterClientsParMC(motCle));
 
@@ -162,7 +175,7 @@ public class Controleur {
 	}
 
 	@RequestMapping(value = "/SuppClient")
-	public String fonction3(Model model, String idC) {
+	public String fonction4(Model model, String idC) {
 
 		Long idClie = Long.getLong(idC);
 		for (Client c : metier.ConsulterClients()) {

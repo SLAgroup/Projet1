@@ -41,13 +41,13 @@ public class Groupe {
 		return idGroupe;
 	}
 	public void setIdGroupe(Long idGroupe) {
-		idGroupe = idGroupe;
+		this.idGroupe = idGroupe;
 	}
 	public String getNomGroupe() {
 		return nomGroupe;
 	}
 	public void setNomGroupe(String nomGroupe) {
-		nomGroupe = nomGroupe;
+		this.nomGroupe = nomGroupe;
 	}
     
 	public List<Employe> getLisEmpGroupe() {
@@ -65,7 +65,7 @@ public class Groupe {
 	}
 	public Groupe(String nomGroupe) {
 		super();
-		nomGroupe = nomGroupe;
+		this.nomGroupe = nomGroupe;
 	}
 
 }

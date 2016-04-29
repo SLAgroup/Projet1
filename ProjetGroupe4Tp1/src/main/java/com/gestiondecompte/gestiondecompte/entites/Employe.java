@@ -51,7 +51,7 @@ public class Employe implements Serializable {
 	}
 
 	public void setIdEmploye(Long idEmploye) {
-		idEmploye = idEmploye;
+		this.idEmploye = idEmploye;
 	}
 
 	public String getNom() {
@@ -59,7 +59,7 @@ public class Employe implements Serializable {
 	}
 
 	public void setNom(String nom) {
-		nom = nom;
+		this.nom = nom;
 	}
 
 	public List<Operation> getListOpEmploye() {
@@ -96,6 +96,6 @@ public class Employe implements Serializable {
 
 	public Employe(String nom) {
 		super();
-		nom = nom;
+		this.nom = nom;
 	}
 }

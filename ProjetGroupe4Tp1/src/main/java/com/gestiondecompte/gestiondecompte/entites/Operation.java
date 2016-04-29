@@ -54,7 +54,7 @@ public class Operation {
 	}
 
 	public void setIdOperation(Long idOperation) {
-		idOperation = idOperation;
+		this.idOperation = idOperation;
 	}
 
 	public Date getDateOperation() {

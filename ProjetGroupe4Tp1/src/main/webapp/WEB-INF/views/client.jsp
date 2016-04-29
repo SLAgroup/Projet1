@@ -171,8 +171,7 @@ ul.nav-tabs.affix {
 					<!-- inserer fonction ajouter client -->
 
 					<div class="bs-example">
-						<form class="form-horizontal" action="AjouterClient.do"
-							method="post">
+						<form class="form-horizontal" action="AjouterClient.do" method="post">
 
 							<div class="form-group">
 								<label class="control-label col-xs-3" for="firstName">Nom:</label>
@@ -207,18 +206,20 @@ ul.nav-tabs.affix {
 								</div>
 							</div>
 
+</form>
 
+<form class="form-horizontal" action="ConsultertousClient.do"
+							method="post">
 							<div class="form-group">
 								<div class="col-xs-offset-3 col-xs-9">
 									<input type="submit" class="btn btn-primary"
 										value="ajouter nouveau client"> <input type="reset"
 										class="btn btn-default" value="Reset">
-								</div>
-							</div>
-					</div>
-
-
-				</div>
+								</div></div>
+					
+</form>
+</div>
+				
 				<hr>
 				<div id="section2">
 					<h2>CONSULTER UN CLIENT</h2>
@@ -230,7 +231,6 @@ ul.nav-tabs.affix {
 
 					<div class="bs-example">
 						<table class="table table-striped">
-
 
 							<c:forEach items="${Client}" var="cf">
 								<tr>

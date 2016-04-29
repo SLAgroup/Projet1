@@ -232,32 +232,13 @@ ul.nav-tabs.affix {
 				</table>
 
 				<br />
-			
-						<table class="table table-striped">
-
-				<tr>
-					<span class="badge"> Afficher un compte à partir d'un ID </span>
-				</tr>
-				<br />
-							<c:forEach items="${modelCompte}" var="co">
-
-
-									<tr>
-										<td>Identité du client :</td>
-										<td>${co.idClient}</td>
-										<td>${co.nomClient}</td>
-										<td>${co.prenomClient}</td>
-									</tr>
-		
-										<td>Solde :</td>
-										<td>${co.solde}</td>
-									</tr>
-
-									<tr>
-										<td>Opérations :</td>
-										<td>${co.listeOperation}</td>
-									</tr>
-								</c:forEach>
+						
+						<table>
+								<tr>
+									<td>${modelCompte.solde}</td>
+									<td>${modelCompte.dateDeCreationCompte}</td>
+								</tr>
+									
 
 						</table>
 						</form>

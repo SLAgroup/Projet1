@@ -67,6 +67,18 @@ public class Controleur {
 		model.addAttribute("modelCompteParClient", metier.ConsulterComptes_Client(idClient));
 		return "compte";
 	}
+	
+	@RequestMapping(value = "/vModifierCompte")
+	public String vModifiercompte(Model model, String idCompte, String Solde) {
+		Long idC = Long.getLong(idCompte);
+		double sold = Double.valueOf(Solde);
+		
+		Compte c1 = metier.ConsulterCompte(idC);
+		c1.setSolde(sold);
+		metier.ModifierCompte(c1);
+		model.addAttribute("modelCompteParClient", metier.ConsulterCompte(idC));
+		return "compte";
+	}
 
 	@RequestMapping(value = "/faireVersement")
 	public String FaireVersement(Model model,String montant, String idCompte, String idEmploye) {

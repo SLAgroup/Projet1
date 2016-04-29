@@ -260,7 +260,7 @@ ul.nav-tabs.affix {
 
 					<tr>
 						<td>ID du Client :</td>
-						<td><input name="idClient" type="number" /></td>
+						<td><input name="idClient" type="text" /></td>
 						<td><input type="submit" value="Afficher le compte"></td>
 					</tr>
 

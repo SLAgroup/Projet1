@@ -94,7 +94,7 @@ ul.nav-tabs.affix {
 </head>
 <body data-spy="scroll" data-target="#myScrollspy">
 
-	<!-- Barre de tache super sympa -->
+	<!-- ******************Barre de tache super sympa****************** -->
 	<div class="bs-example">
 		<ul class="nav nav-pills">
 			<li role="presentation"><a href="accueil">Accueil</a></li>
@@ -132,7 +132,7 @@ ul.nav-tabs.affix {
 					<li><a href="employe">Consulter un groupe</a></li>
 					<li><a href="employe">Consulter tous les groupes</a></li>
 				</ul></li>
-			<li role="presentation" class="dropdown" ><a href="client"
+			<li role="presentation" class="dropdown"><a href="client"
 				data-toggle="dropdown" class="dropdown-toggle">Client<b
 					class="caret"></b></a>
 				<ul class="dropdown-menu">
@@ -145,7 +145,7 @@ ul.nav-tabs.affix {
 		</ul>
 	</div>
 
-	<!-- menu sur le cote avec lien sur la partie concernée:-->
+	<!-- ******************menu sur le cote avec lien sur la partie concernée:******************-->
 
 	<div class="container">
 		<h1>COMPTE(S)</h1>
@@ -168,277 +168,279 @@ ul.nav-tabs.affix {
 			</div>
 			<div class="col-sm-9">
 				<div id="section1">
+
+
 					<h2>NOUVEAU COMPTE</h2>
 
-					<!-- Ajouter un compte -->
-					
-				<form action="vAjouterCompte" method="post">
-				<table class="table table-striped">
+					<!-- ******************Ajouter un compte****************** -->
 
-					<tr>
-						<span class="badge"> Nouveau Compte </span>
-					</tr>
+					<form action="vAjouterCompte" method="post">
+						<table class="table table-striped">
+
+							<tr>
+								<span class="badge"> Nouveau Compte </span>
+							</tr>
+
+							<br />
+
+							<tr>
+								<td>ID du client :</td>
+								<td><input name="idClient" type="text" /></td>
+							</tr>
+
+							<tr>
+								<td>ID de l'employé :</td>
+								<td><input name="idEmploye" type="text" /></td>
+							</tr>
+
+							<tr>
+								<td>Solde à la création :</td>
+								<td><input name="solde" type="text" /></td>
+							</tr>
+
+							<tr>
+								<td></td>
+								<td><input type="submit" value="Enregistrer"></td>
+							</tr>
+
+						</table>
+					</form>
 
 					<br />
-
-					<tr>
-						<td>ID du client :</td>
-						<td><input name="idClient" type="text" /></td>
-					</tr>
-
-					<tr>
-						<td>ID de l'employé :</td>
-						<td><input name="idEmploye" type="text" /></td>
-					</tr>
-
-					<tr>
-						<td>Solde à la création :</td>
-						<td><input name="solde" type="text" /></td>
-					</tr>
-
-					<tr>
-						<td></td>
-						<td><input type="submit" value="Enregistrer"></td>
-					</tr>
-
-				</table>
-			</form>
-
-			<br />
 
 
 					<hr>
 					<div id="section2">
 						<h2>CONSULTER COMPTE(S)</h2>
 
-		<!-- Afficher un compte à partir d'un ID -->
+						<!-- ******************Afficher un compte à partir d'un ID****************** -->
 
-			<form action="vConsulterCompteParID">
+						<form action="vConsulterCompteParID">
 
-				<table class="table table-striped">
+							<table class="table table-striped">
 
-					<tr>
-						<span class="badge"> Compte à Afficher par ID </span>
-					</tr>
+								<tr>
+									<span class="badge"> Compte à Afficher par ID </span>
+								</tr>
 
-					<br />
+								<br />
 
-					<tr>
-						<td>ID du Compte :</td>
-						<td><input name="idCompte" type="text" /></td>
-						<td><input type="submit" value="Afficher le compte"></td>
-					</tr>
+								<tr>
+									<td>ID du Compte :</td>
+									<td><input name="idCompte" type="text" /></td>
+									<td><input type="submit" value="Afficher le compte"></td>
+								</tr>
 
-				</table>
-				<br />
-						<table>
+							</table>
+							<br />
+							<table>
 								<tr>
 									<td>${modelCompte.solde}</td>
 									<td>${modelCompte.dateDeCreationCompte}</td>
 								</tr>
-						</table>
+							</table>
 						</form>
 						<br> <br>
-						
+
 					</div>
 
 
-<!-- Afficher un compte à partir d'un ID de Client -->
+					<!-- Afficher un compte à partir d'un ID de Client -->
 
-			<form action="vConsulterCompteParClient">
-				<table class="table table-striped">
+					<form action="vConsulterCompteParClient">
+						<table class="table table-striped">
 
-					<tr>
-						<span class="badge"> Compte à Afficher par ID de CLient </span>
-					</tr>
+							<tr>
+								<span class="badge"> Compte à Afficher par ID de CLient </span>
+							</tr>
+
+							<br />
+
+							<tr>
+								<td>ID du Client :</td>
+								<td><input name="idClient" type="text" /></td>
+								<td><input type="submit" value="Afficher le compte"></td>
+							</tr>
+
+						</table>
+
+						<br />
+					</form>
+					<br />
+
+
+					<table class="table table-striped">
+						<tr>
+							<td>ID du Compte :</td>
+							<td>Solde :</td>
+							<td>Liste des Opérations:</td>
+							<td>ID du client :</td>
+							<td>ID de l'employé :</td>
+							<td>Date de création du Compte :</td>
+
+						</tr>
+						<c:forEach items="${modelCompteParClient}" var="p">
+							<tr>
+								<td>${p.idCompte}</td>
+								<td>${p.solde}</td>
+								<td>${p.listeOperation}</td>
+								<td>${p.client.idClient}</td>
+								<td>${p.employe.idEmploye}</td>
+								<td>${p.dateDeCreationCompte}</td>
+							</tr>
+						</c:forEach>
+					</table>
+
 
 					<br />
 
-					<tr>
-						<td>ID du Client :</td>
-						<td><input name="idClient" type="text" /></td>
-						<td><input type="submit" value="Afficher le compte"></td>
-					</tr>
+					<hr>
+					<div id="section3">
+						<h2>MODIFIER/SUPPRIMER UN COMPTE</h2>
 
-				</table>
+						<form action="vModifierCompte">
 
-				<br />
-			</form>
-			<br />
+							<table class="table table-striped">
 
+								<tr>
+									<span class="badge"> Modifier Compte par son ID </span>
+								</tr>
 
-			<table class="table table-striped">
-				<tr>
-					<td>ID du Compte :</td>
-					<td>Solde :</td>
-					<td>Liste des Opérations:</td>
-					<td>ID du client :</td>
-					<td>ID de l'employé :</td>
-					<td>Date de création du Compte :</td>
+								<br />
 
-				</tr>
-				<c:forEach items="${modelCompteParClient}" var="p">
-					<tr>
-						<td>${p.idCompte}</td>
-						<td>${p.solde}</td>
-						<td>${p.listeOperation}</td>
-						<td>${p.client.idClient}</td>
-						<td>${p.employe.idEmploye}</td>
-						<td>${p.dateDeCreationCompte}</td>
-					</tr>
-				</c:forEach>
-			</table>
+								<tr>
+									<td>ID du Compte :</td>
+									<td><input name="idCompte" type="text" /></td>
+									<td><input name="Solde" type="text" /></td>
+									<td><input type="submit" value="Afficher le compte"></td>
+								</tr>
 
-
-			<br />
-
-						<hr>
-						<div id="section3">
-							<h2>MODIFIER/SUPPRIMER UN COMPTE</h2>
-
-				<form action="vModifierCompte">
-
-				<table class="table table-striped">
-
-					<tr>
-						<span class="badge"> Modifier Compte par son ID </span>
-					</tr>
-
-					<br />
-
-					<tr>
-						<td>ID du Compte :</td>
-						<td><input name="idCompte" type="text" /></td>
-						<td><input name="Solde" type="text" /></td>
-						<td><input type="submit" value="Afficher le compte"></td>
-					</tr>
-
-				</table>
-				<br />
-						<table>
+							</table>
+							<br />
+							<table>
 								<tr>
 									<td>${modelCompteParClient.idCompte}</td>
 									<td>${modelCompteParClient.solde}</td>
 									<td>${modelCompteParClient.dateDeCreationCompte}</td>
 								</tr>
-						</table>
+							</table>
 						</form>
 						<br> <br>
-						
+
 					</div>
 
-						</div>
-						<hr>
-						<div id="section4">
-							<h2>OPERATION(S)</h2>
+				</div>
+				<hr>
+				<div id="section4">
+					<h2>OPERATION(S)</h2>
 
-							<!-- inserer fonction Suppression/modification -->
+					<!-- inserer fonction Suppression/modification -->
 					<form action="faireVersement">
 
-				<table class="table table-striped">
+						<table class="table table-striped">
 
-					<tr>
-						<span class="badge"> Modifier Compte par son ID </span>
-					</tr>
+							<tr>
+								<span class="badge"> Modifier Compte par son ID </span>
+							</tr>
 
-					<br />
+							<br />
 
-					<tr>
-						<td>ID du Compte :</td>
-						<td><input name="idEmploye" type="text" /></td>
-						<td><input name="idCompte" type="text" /></td>
-						<td><input name="montant" type="text" /></td>
-						<td><input type="submit" value="Afficher le compte"></td>
-					</tr>
+							<tr>
+								<td>ID du Compte :</td>
+								<td><input name="idEmploye" type="text" /></td>
+								<td><input name="idCompte" type="text" /></td>
+								<td><input name="montant" type="text" /></td>
+								<td><input type="submit" value="Afficher le compte"></td>
+							</tr>
 
-				</table>
-				<br />
-						<table>
-								<tr>
-									<td>${modelVersement.idCompte}</td>
-									<td>${modelVersement.solde}</td>
-									<td>${modelVersement.dateDeCreationCompte}</td>
-								</tr>
 						</table>
-						</form>
-						<br> <br>		
-							
-						<form action="faireRetrait">
-
-				<table class="table table-striped">
-
-					<tr>
-						<span class="badge"> Modifier Compte par son ID </span>
-					</tr>
-
-					<br />
-
-					<tr>
-						<td>ID du Compte :</td>
-						<td><input name="idEmploye" type="text" /></td>
-						<td><input name="idCompte" type="text" /></td>
-						<td><input name="montant" type="text" /></td>
-						<td><input type="submit" value="Afficher le compte"></td>
-					</tr>
-
-				</table>
-				<br />
+						<br />
 						<table>
-								<tr>
-									<td>${modelRetrait.idCompte}</td>
-									<td>${modelRetrait.solde}</td>
-									<td>${modelRetrait.dateDeCreationCompte}</td>
-								</tr>
+							<tr>
+								<td>${modelVersement.idCompte}</td>
+								<td>${modelVersement.solde}</td>
+								<td>${modelVersement.dateDeCreationCompte}</td>
+							</tr>
 						</table>
-						</form>
-						<br> <br>		
+					</form>
+					<br> <br>
 
-			<form action="faireVirement">
+					<form action="faireRetrait">
 
-				<table class="table table-striped">
+						<table class="table table-striped">
 
-					<tr>
-						<span class="badge"> Modifier Compte par son ID </span>
-					</tr>
+							<tr>
+								<span class="badge"> Modifier Compte par son ID </span>
+							</tr>
 
-					<br />
+							<br />
 
-					<tr>
-						<td>ID du Compte :</td>
-						<td><input name="idCompte1" type="text" /></td>
-						<td><input name="idCompte2" type="text" /></td>
-						<td><input name="montant" type="text" /></td>
-						<td><input type="submit" value="Afficher le compte"></td>
-					</tr>
+							<tr>
+								<td>ID du Compte :</td>
+								<td><input name="idEmploye" type="text" /></td>
+								<td><input name="idCompte" type="text" /></td>
+								<td><input name="montant" type="text" /></td>
+								<td><input type="submit" value="Afficher le compte"></td>
+							</tr>
 
-				</table>
-				<br />
+						</table>
+						<br />
 						<table>
-								<tr>
-									<td>${modelVirement.idCompte}</td>
-									<td>${modelVirement.solde}</td>
-									<td>${modelVirement.dateDeCreationCompte}</td>
-								</tr>
+							<tr>
+								<td>${modelRetrait.idCompte}</td>
+								<td>${modelRetrait.solde}</td>
+								<td>${modelRetrait.dateDeCreationCompte}</td>
+							</tr>
 						</table>
-						</form>
-						<br> <br>
-						</div>
-						<hr>
-						<div id="section5">
-							<h2>CONSULTER OPERATION(S)</h2>
+					</form>
+					<br> <br>
 
-							<!-- inserer fonction Suppression/modification -->
+					<form action="faireVirement">
 
-						</div>
+						<table class="table table-striped">
 
-					</div>
+							<tr>
+								<span class="badge"> Modifier Compte par son ID </span>
+							</tr>
+
+							<br />
+
+							<tr>
+								<td>ID du Compte :</td>
+								<td><input name="idCompte1" type="text" /></td>
+								<td><input name="idCompte2" type="text" /></td>
+								<td><input name="montant" type="text" /></td>
+								<td><input type="submit" value="Afficher le compte"></td>
+							</tr>
+
+						</table>
+						<br />
+						<table>
+							<tr>
+								<td>${modelRetrait.idCompte}</td>
+								<td>${modelRetrait.solde}</td>
+								<td>${modelRetrait.dateDeCreationCompte}</td>
+							</tr>
+						</table>
+					</form>
+					<br> <br>
 				</div>
+				<hr>
+				<div id="section5">
+					<h2>CONSULTER OPERATION(S)</h2>
+
+					<!-- inserer fonction Suppression/modification -->
+
+				</div>
+
 			</div>
+		</div>
+	</div>
 
 
 
-			<!-- Ajouter un compte -->
- --%>
+	<!-- Ajouter un compte -->
+	--%>
 
 
 

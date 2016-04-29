@@ -51,11 +51,12 @@ public class Compte implements Serializable {
 	@JoinColumn(name = "idClient")
 	private Client client;
 
-	@OneToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "Assos_Compte_Operation", joinColumns = @JoinColumn(name = "idCompte"), inverseJoinColumns = @JoinColumn(name = "idOperation"))
+	@OneToMany(mappedBy = "compte")
+	/*@JoinTable(name = "Assos_Compte_Operation", joinColumns = @JoinColumn(name = "idCompte"), inverseJoinColumns = @JoinColumn(name = "idOperation"))*/
 	private List<Operation> listeOperation;
 	
 	@ManyToOne
+	@JoinColumn(name ="idEmploye")
 	private Employe employe;
 	
 	// Getters & Setters

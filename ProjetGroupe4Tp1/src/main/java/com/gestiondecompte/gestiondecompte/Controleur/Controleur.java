@@ -68,6 +68,37 @@ public class Controleur {
 		return "compte";
 	}
 
+	@RequestMapping(value = "/faireVersement")
+	public String FaireVersement(Model model,String montant, String idCompte, String idEmploye) {
+		double mt = Double.valueOf(montant);
+		Long idC = Long.getLong(idCompte);
+		Long idE = Long.getLong(idEmploye);
+		metier.EffectuerVersement(mt, idC, idE);
+		model.addAttribute("modelVersement", metier.ConsulterComptes_Client(idC));
+		return "compte";
+	}
+	@RequestMapping(value = "/faireRetrait")
+	public String FaireRetrait(Model model,String montant, String idCompte, String idEmploye) {
+		double mt = Double.valueOf(montant);
+		Long idC = Long.getLong(idCompte);
+		Long idE = Long.getLong(idEmploye);
+		metier.EffectuerRetrait(mt, idC, idE);
+		model.addAttribute("modelRetrait", metier.ConsulterComptes_Client(idC));
+		return "compte";
+	}
+	
+	@RequestMapping(value = "/faireVirement")
+	public String FaireVirement(Model model,String montant, String idCompte1, String idCompte2, String idEmploye) {
+		double mt = Double.valueOf(montant);
+		Long idC1 = Long.getLong(idCompte1);
+		Long idC2 = Long.getLong(idCompte2);
+		Long idE = Long.getLong(idEmploye);
+		metier.EffectuerVirementCompte_Compte(mt, idC1, idC2, idE);
+		model.addAttribute("modelVirement", metier.ConsulterComptesCrees_Employe(idE));
+		
+		return "compte";
+	}
+	
 	// Actions Employé Aghiles
 
 	@RequestMapping(value = "/ajouterEmploye")

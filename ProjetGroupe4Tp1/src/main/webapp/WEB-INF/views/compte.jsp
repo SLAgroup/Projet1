@@ -247,14 +247,9 @@ ul.nav-tabs.affix {
 					</div>
 
 
+<!-- Afficher un compte à partir d'un ID de Client -->
 
-	
-			
-			
-
-			<!-- Afficher un compte à partir d'un ID de Client -->
-
-			<%-- <form action="vConsulterCompteParClient">
+			<form action="vConsulterCompteParClient">
 				<table class="table table-striped">
 
 					<tr>
@@ -313,6 +308,9 @@ ul.nav-tabs.affix {
 							<h2>OPERATION(S)</h2>
 
 							<!-- inserer fonction Suppression/modification -->
+							
+							
+							
 
 						</div>
 						<hr>

@@ -230,16 +230,12 @@ ul.nav-tabs.affix {
 					</tr>
 
 				</table>
-
 				<br />
-						
 						<table>
 								<tr>
 									<td>${modelCompte.solde}</td>
 									<td>${modelCompte.dateDeCreationCompte}</td>
 								</tr>
-									
-
 						</table>
 						</form>
 						<br> <br>
@@ -300,7 +296,36 @@ ul.nav-tabs.affix {
 						<div id="section3">
 							<h2>MODIFIER/SUPPRIMER UN COMPTE</h2>
 
-							<!-- inserer fonction Suppression/modification -->
+				<form action="vModifierCompte">
+
+				<table class="table table-striped">
+
+					<tr>
+						<span class="badge"> Modifier Compte par son ID </span>
+					</tr>
+
+					<br />
+
+					<tr>
+						<td>ID du Compte :</td>
+						<td><input name="idCompte" type="text" /></td>
+						<td><input name="Solde" type="text" /></td>
+						<td><input type="submit" value="Afficher le compte"></td>
+					</tr>
+
+				</table>
+				<br />
+						<table>
+								<tr>
+									<td>${modelCompteParClient.idCompte}</td>
+									<td>${modelCompteParClient.solde}</td>
+									<td>${modelCompteParClient.dateDeCreationCompte}</td>
+								</tr>
+						</table>
+						</form>
+						<br> <br>
+						
+					</div>
 
 						</div>
 						<hr>
@@ -308,10 +333,95 @@ ul.nav-tabs.affix {
 							<h2>OPERATION(S)</h2>
 
 							<!-- inserer fonction Suppression/modification -->
-							
-							
-							
+					<form action="faireVersement">
 
+				<table class="table table-striped">
+
+					<tr>
+						<span class="badge"> Modifier Compte par son ID </span>
+					</tr>
+
+					<br />
+
+					<tr>
+						<td>ID du Compte :</td>
+						<td><input name="idEmploye" type="text" /></td>
+						<td><input name="idCompte" type="text" /></td>
+						<td><input name="montant" type="text" /></td>
+						<td><input type="submit" value="Afficher le compte"></td>
+					</tr>
+
+				</table>
+				<br />
+						<table>
+								<tr>
+									<td>${modelVersement.idCompte}</td>
+									<td>${modelVersement.solde}</td>
+									<td>${modelVersement.dateDeCreationCompte}</td>
+								</tr>
+						</table>
+						</form>
+						<br> <br>		
+							
+						<form action="faireRetrait">
+
+				<table class="table table-striped">
+
+					<tr>
+						<span class="badge"> Modifier Compte par son ID </span>
+					</tr>
+
+					<br />
+
+					<tr>
+						<td>ID du Compte :</td>
+						<td><input name="idEmploye" type="text" /></td>
+						<td><input name="idCompte" type="text" /></td>
+						<td><input name="montant" type="text" /></td>
+						<td><input type="submit" value="Afficher le compte"></td>
+					</tr>
+
+				</table>
+				<br />
+						<table>
+								<tr>
+									<td>${modelRetrait.idCompte}</td>
+									<td>${modelRetrait.solde}</td>
+									<td>${modelRetrait.dateDeCreationCompte}</td>
+								</tr>
+						</table>
+						</form>
+						<br> <br>		
+
+			<form action="faireVirement">
+
+				<table class="table table-striped">
+
+					<tr>
+						<span class="badge"> Modifier Compte par son ID </span>
+					</tr>
+
+					<br />
+
+					<tr>
+						<td>ID du Compte :</td>
+						<td><input name="idCompte1" type="text" /></td>
+						<td><input name="idCompte2" type="text" /></td>
+						<td><input name="montant" type="text" /></td>
+						<td><input type="submit" value="Afficher le compte"></td>
+					</tr>
+
+				</table>
+				<br />
+						<table>
+								<tr>
+									<td>${modelVirement.idCompte}</td>
+									<td>${modelVirement.solde}</td>
+									<td>${modelVirement.dateDeCreationCompte}</td>
+								</tr>
+						</table>
+						</form>
+						<br> <br>
 						</div>
 						<hr>
 						<div id="section5">
